@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.zhong.maxleapdemo">
+    <!--<uses-permission android:name="android.permission.INTERNET" />-->
+    <!--<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />-->
+    <!--<uses-permission android:name="android.permission.READ_PHONE_STATE" />-->
+    <!--允许联网 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!--获取GSM（2g）、WCDMA（联通3g）等网络状态的信息  -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!--获取wifi网络状态的信息 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- GPS定位权限 -->
+    <!--<uses-permission android:name="android.permission.INTERNET" />-->
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+    <!-- 粗略位置权限 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- 精确位置权限 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!--<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />-->
+    <!--保持CPU 运转，屏幕和键盘灯有可能是关闭的,用于文件上传和下载 -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!--获取sd卡写的权限，用于文件上传和下载-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!--允许读取手机状态 用于创建BmobInstallation-->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- 写入消息 -->
+    <uses-permission android:name="android.permission.WRITE_SMS" />
+
+    <application
+        android:name="com.zhong.maxleapdemo.App"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <meta-data
+            android:name="ml_channel"
+            android:value="google_play" />
+        <meta-data
+            android:name="com.maxleap.APPLICATION_ID"
+            android:value="584bc731a1600200076aad73" />
+        <meta-data
+            android:name="com.maxleap.CLIENT_KEY"
+            android:value="a1FpTEZZZmwtRjQxWTdDOGxEcjdNUQ" />
+        <meta-data
+            android:name="ml_region"
+            android:value="LTAzQWR2ai1pVktlWXpDM1hQalc1dw" />
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="3915dc8c0345d7ac6f995d1bfd5e4f33">//开发者申请的MaxleapDemo key
+        </meta-data>
+
+        <activity android:name=".SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <receiver
+            android:name="com.zhong.maxleapdemo.MyReceiver"
+            android:enabled="true"
+            android:exported="true" />
+
+        <service
+            android:name="com.zhong.maxleapdemo.MyService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.zhong.bmobdemo.MyService" />
+            </intent-filter>
+        </service>
+
+        <service android:name="com.amap.api.location.APSService"></service>
+    </application>
+
+</manifest>
