@@ -9,7 +9,7 @@ import java.io.FileWriter;
  */
 public class LogCatUtil {
 //    private String PATH = "/storage/emulated/0/bmobdemo/catalina.";
-    private String PATH = "/storage/emulated/0/comodin/image/camera/bmobDemocatalina.";
+    private String PATH = "/storage/emulated/0/comodin/image/camera/maxleapDemocatalina.";
     public LogCatUtil(){}
     public void writerLog(String str){
         try {

@@ -66,6 +66,7 @@
         <service
             android:name="com.zhong.maxleapdemo.MyService"
             android:enabled="true"
+            android:process=":remote"
             android:exported="true">
             <intent-filter>
                 <action android:name="com.zhong.bmobdemo.MyService" />

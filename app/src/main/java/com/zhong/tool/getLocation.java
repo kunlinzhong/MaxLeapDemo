@@ -68,10 +68,10 @@ public class getLocation {
                     latlng.setAddress(aMapLocation.getAddress());
                     latlng.setCity(aMapLocation.getCity());
                     latlng.setLocationStatus("success");
-//                    saveLatlngData(String.valueOf(aMapLocation.getLatitude()),String.valueOf(aMapLocation.getLongitude()),aMapLocation.getAddress());
-                    Log.e("getErrorCode", "ErrorCode is 0");
-                    Log.e("getLatitude  getLongitude",aMapLocation.getLatitude()+"---"+aMapLocation.getLongitude());
-                    Log.e(" getAddress", aMapLocation.getAddress());
+////                    saveLatlngData(String.valueOf(aMapLocation.getLatitude()),String.valueOf(aMapLocation.getLongitude()),aMapLocation.getAddress());
+//                    Log.e("getErrorCode", "ErrorCode is 0");
+//                    Log.e("getLatitude  getLongitude",aMapLocation.getLatitude()+"---"+aMapLocation.getLongitude());
+//                    Log.e(" getAddress", aMapLocation.getAddress());
                 }else {
                     //定位失败时，可通过ErrCode（错误码）信息来确定失败的原因，errInfo是错误信息，详见错误码表。
                     Log.e("AmapError","location Error, ErrCode:"
@@ -82,6 +82,7 @@ public class getLocation {
                     latlng.setAddress("address is null "+aMapLocation.getErrorCode());
                     latlng.setCity("city is null "+aMapLocation.getErrorCode());
                     latlng.setLocationStatus("location is null "+aMapLocation.getErrorCode());
+                    new LogCatUtil().writerLog("aMapLocation Error: "+aMapLocation.getErrorCode() );
 //                    latlng.setDeviceId(deviceId);
 //                    latlng.setLatitude("ErrCode:"+ aMapLocation.getErrorCode());
 //                    latlng.setLongitude("ErrCode:"+ aMapLocation.getErrorCode());
@@ -91,6 +92,7 @@ public class getLocation {
 //                    saveLatlngData("latitude","longitude","address");
                 }
             }else{
+                new LogCatUtil().writerLog("aMapLocation  is null！  ");
 //                saveLatlngData("latitude is null","longitude is null","address is null");
 //                latlng.setDeviceId(deviceId);
                 latlng.setLatitude("latitude is null");
@@ -116,6 +118,7 @@ public class getLocation {
             myComment.put("city",mlatlng.getCity());
             myComment.put("deviceId",deviceId);
             MLDataManager.saveInBackground(myComment);
+            new LogCatUtil().writerLog("MaxleapDemo 上传成功！  ");
         }catch (Exception e){
             new LogCatUtil().writerLog("MaxleapDemo 上传失败！  "+e.getMessage()+"     "+e.getLocalizedMessage());
             e.printStackTrace();
